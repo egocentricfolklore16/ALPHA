@@ -150,7 +150,7 @@ function Navigation() {
       )}
 
       {/* Main Navigation Header */}
-      <nav className="w-full bg-white border-b-2 border-orange-400 z-10">
+      <nav className="w-full bg-white border-b-2 border-orange-400">
         <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 py-2">
           {/* Logo */}
           <div className="cursor-pointer hover:scale-110 transition duration-500 ease-in-out flex-shrink-0">
