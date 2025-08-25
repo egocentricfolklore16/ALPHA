@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Award, Briefcase, Users, ClipboardList } from "lucide-react";
+
 
 function useCountUp(target, inView, duration = 2000) {
   const [count, setCount] = useState(0);
