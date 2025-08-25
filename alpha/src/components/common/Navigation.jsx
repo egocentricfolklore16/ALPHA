@@ -1,17 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 
-// Mock ClickSpark component for demonstration
-const ClickSpark = ({
-  children,
-  sparkColor,
-  sparkSize,
-  sparkRadius,
-  sparkCount,
-  duration,
-}) => {
-  return <div>{children}</div>;
-};
-
 function Navigation() {
   const [activeItem, setActiveItem] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
@@ -165,25 +153,17 @@ function Navigation() {
           <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
             <div className="flex items-center space-x-6 xl:space-x-8">
               {navlinks.map((item) => (
-                <ClickSpark
+                <button
                   key={item.name}
-                  sparkColor="#334155"
-                  sparkSize={25}
-                  sparkRadius={35}
-                  sparkCount={9}
-                  duration={700}
+                  onClick={() => handleItemClick(item.name)}
+                  className={`px-4 py-2 text-base font-medium transition-all duration-300 ease-in-out whitespace-nowrap ${
+                    activeItem === item.name
+                      ? "text-orange-500 border-b-2 border-orange-500 cursor-pointer"
+                      : "text-slate-700 cursor-pointer hover:text-orange-500 relative after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-orange-400 after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300"
+                  }`}
                 >
-                  <button
-                    onClick={() => handleItemClick(item.name)}
-                    className={`px-4 py-2 text-base font-medium transition-all duration-300 ease-in-out whitespace-nowrap ${
-                      activeItem === item.name
-                        ? "text-orange-500 border-b-2 border-orange-500 cursor-pointer"
-                        : "text-slate-700 cursor-pointer hover:text-orange-500 relative after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-orange-400 after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </ClickSpark>
+                  {item.name}
+                </button>
               ))}
             </div>
           </div>
@@ -276,27 +256,18 @@ function Navigation() {
         <div className="flex-1 px-4 py-6 overflow-y-auto">
           <ul className="space-y-2">
             {navlinks.map((item) => (
-              <ClickSpark
-                key={item.name}
-                sparkColor="#334155"
-                sparkSize={25}
-                sparkRadius={35}
-                sparkCount={9}
-                duration={700}
-              >
-                <li>
-                  <button
-                    onClick={() => handleItemClick(item.name)}
-                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ease-in-out ${
-                      activeItem === item.name
-                        ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
-                        : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              </ClickSpark>
+              <li key={item.name}>
+                <button
+                  onClick={() => handleItemClick(item.name)}
+                  className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ease-in-out ${
+                    activeItem === item.name
+                      ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              </li>
             ))}
           </ul>
         </div>
