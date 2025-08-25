@@ -38,9 +38,6 @@ export default function StatsSection() {
       observer.observe(sectionRef.current);
     }
 
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
   }, []);
 
   const stats = [
@@ -91,7 +88,7 @@ export default function StatsSection() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-white shadow-md p-8 flex flex-col border-b border-b-4 border-r border-r-4 border-orange-400 items-center justify-center border-radius: 14px; background: #e0e0e0; box-shadow: 6px 6px 21px #949494, -6px -6px 21px"
+            className="bg-white shadow-md p-8 flex flex-col  border-b-4  border-r-4 border-orange-400 items-center justify-center border-radius: 14px; background: #e0e0e0; box-shadow: 6px 6px 21px #949494, -6px -6px 21px"
           >
             {stat.icon}
             <h2 className="text-3xl font-bold text-gray-900 mt-2">
